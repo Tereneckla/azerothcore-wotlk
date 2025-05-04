@@ -2836,7 +2836,7 @@ class spell_the_lich_king_vile_spirit_move_target_search : public SpellScript
     {
         if (targets.empty())
             return;
-
+        targets.remove_if([](WorldObject* t){ return !t->IsPlayer();});
         _target = Acore::Containers::SelectRandomContainerElement(targets);
     }
 
